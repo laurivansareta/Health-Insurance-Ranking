@@ -21,9 +21,9 @@ A minha estratégia para resolver este desafio foi:
 
 **Etapa 04. Análise Exploratória de Dados:**
 
-**Etapa 05. Feature Selection:**
+**Etapa 05. Preparação de Dados:**
 
-**Etapa 06. Preparação de Dados:**
+**Etapa 06. Feature Selection:**
 
 **Etapa 07. Modelagem de machine learning:**
 
@@ -58,3 +58,5 @@ A minha estratégia para resolver este desafio foi:
 # 9. Lições aprendidas
 
 # 10. Próximos passos para melhorar
+
+Origem dos dados e do problema: https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction
