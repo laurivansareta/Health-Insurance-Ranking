@@ -2,7 +2,7 @@
 
 # Sistema de Recomendação para Cross-selling de Seguros
 
-**Disclaimer: O Contexto a seguir, é completamente fictício, a empresa, o contexto, o CEO, as perguntas de negócio existem somente na minha imaginação. **
+**Disclaimer: O Contexto a seguir, é completamente fictício, a empresa, o contexto, o CEO, as perguntas de negócio existem somente na minha imaginação.**
 
 ## ****Contexto de negócio****
 
@@ -24,19 +24,18 @@ O conjunto de dados está disponível na plataforma do Kaggle, através desse li
 Cada linha representa um cliente e cada coluna contém alguns atributos que descrevem esse cliente, além da sua resposta à pesquisa, na qual ela mencionou interesse ou não ao novo produto de seguros. 
 
 O conjunto de dados inclui as seguintes informações:
-
-Id: identificador único do cliente.
-Gender: gênero do cliente.
-Age: idade do cliente.
-Driving License: 0, o cliente não tem permissão para dirigir e 1, o cliente tem para dirigir ( CNH – Carteira Nacional de Habilitação )
-Region Code: código da região do cliente.
-Previously Insured: 0, o cliente não tem seguro de automóvel e 1, o cliente já tem seguro de automóvel.
-Vehicle Age: idade do veículo.
-Vehicle Damage: 0, cliente nunca teve seu veículo danificado no passado e 1, cliente já teve seu veículo danificado no passado.
-Anual Premium: quantidade que o cliente pagou à empresa pelo seguro de saúde anual.
-Policy sales channel: código anônimo para o canal de contato com o cliente.
-Vintage: número de dias que o cliente se associou à empresa através da compra do seguro de saúde.
-Response: 0, o cliente não tem interesse e 1, o cliente tem interesse.
+- Id: identificador único do cliente.
+- Gender: gênero do cliente.
+- Age: idade do cliente.
+- Driving License: 0, o cliente não tem permissão para dirigir e 1, o cliente tem para dirigir ( CNH – Carteira Nacional de Habilitação )
+- Region Code: código da região do cliente.
+- Previously Insured: 0, o cliente não tem seguro de automóvel e 1, o cliente já tem seguro de automóvel.
+- Vehicle Age: idade do veículo.
+- Vehicle Damage: 0, cliente nunca teve seu veículo danificado no passado e 1, cliente já teve seu veículo danificado no passado.
+- Anual Premium: quantidade que o cliente pagou à empresa pelo seguro de saúde anual.
+- Policy sales channel: código anônimo para o canal de contato com o cliente.
+- Vintage: número de dias que o cliente se associou à empresa através da compra do seguro de saúde.
+- Response: 0, o cliente não tem interesse e 1, o cliente tem interesse.
 
 # 2. Premissas de Negócios.
 
@@ -78,7 +77,7 @@ A minha estratégia para resolver este desafio foi:
 
 ... Em Desenvolvimento
 
-**Hipótese 01:**
+<!-- **Hipótese 01:**
 
 **Verdadeiro/falso.**
 
@@ -100,5 +99,18 @@ A minha estratégia para resolver este desafio foi:
 
 # 9. Lições aprendidas
 
-# 10. Próximos passos para melhorar
+# 10. Próximos passos para melhorar -->
+
+
+## Referências
+**Métricas de Ranqueamento**
+- https://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples
+- https://stats.stackexchange.com/questions/159657/metrics-for-evaluating-ranking-algorithms
+- https://archive.siam.org/meetings/sdm10/tutorial1.pdf
+- https://brianmcfee.net/papers/mlr.pdf
+- https://towardsdatascience.com/meaningful-metrics-cumulative-gains-and-lyft-charts-7aac02fc5c14
+- https://towardsdatascience.com/20-popular-machine-learning-metrics-part-2-ranking-statistical-metrics-22c3e5a937b6
+
+**Outras**
+- https://stats.stackexchange.com/questions/262794/why-does-a-decision-tree-have-low-bias-high-variance
 
