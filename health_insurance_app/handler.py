@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 import os
 from flask import Flask, request, Response
-from healthinsurance import HealthInsurance
+from healthinsurance import HealthInsurance as hi
 
 print(os.getcwd())
 
@@ -21,17 +21,15 @@ def status():
 def health_insurance_predict():   
     test_json = request.get_json()
 
-    print(test_json)
-
     if not test_json:
         return Response('{}', status=200, mimetype='application/json')
 
     if isinstance(test_json, dict):
         teste_raw = pd.DataFrame(test_json, index=[0])
     else:
-        teste_raw = pd.DataFrame(test_json, index=test_json[0].keys())
+        teste_raw = pd.DataFrame(test_json, columns=test_json[0].keys())
 
-    pipeline = HealthInsurance()
+    pipeline = hi.HealthInsurance()
     df = pipeline.data_cleaning(teste_raw)
     df = pipeline.feature_engineering(df)
     df = pipeline.data_preparation(df)

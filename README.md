@@ -114,3 +114,7 @@ A minha estratégia para resolver este desafio foi:
 **Outras**
 - https://stats.stackexchange.com/questions/262794/why-does-a-decision-tree-have-low-bias-high-variance
 
+**Debug**
+- https://towardsdatascience.com/how-to-debug-flask-applications-in-vs-code-c65c9bdbef21
+- https://medium.com/trainingcenter/flask-restplus-ea942ec30555
+
