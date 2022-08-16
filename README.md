@@ -42,14 +42,24 @@ O conjunto de dados inclui as seguintes informações:
 O time de vendas já utiliza o Google Sheets como ferramenta corporativa. É preciso que o ranking de propensão de compra seja incorporado nele.
 
 # 3. Planejamento da solução
+## Qual a Solução?
+Desenvolver uma solução que classifique os clientes com maior propensão de adquirir seguro de automóvel.
 
-O que será entregue efetivamente?
+## Como Será a solução?
+Será disponibilizado uma API que o cliente pode acessar através de aplicativo, site ou outra ferramenta.
 
-Uma funcionalidade dentro da ferramenta Google Sheets, que ordena os 76 mil clientes (ou quaisquer novos clientes inclusos na planilha) por propensão de compra.
+## Hospedagem
+Hospedagem será feita na plataforma Heroku, disponibilizado no link: https://health-insurance-ranking-cs.herokuapp.com/
+- Para consultar o status basta fazer requisição /status
+- Para fazer a classificação a requisição do tipo POST na rota /predict
+
+## Método de entrega
+Conforme levantado a maneira mais rápida é através de uma funcionalidade dentro da ferramenta Google Sheets, que para quaisquer novos clientes inclusos na planilha, vai informar na coluna Score a por propensão de compra.
+Esta solução pode gerar o score para novo cliente ou os 76 mil clientes da base.
+
+Disponibilizado no link: https://docs.google.com/spreadsheets/d/1RDqk3xsWjkq25O6RqTeURAtFN7fsZNiU9me7N_db_Fg/edit#gid=0
 
 # 3. Estratégia de Solução
-
-... Em Desenvolvimento
 
 A minha estratégia para resolver este desafio foi:
 
@@ -73,7 +83,7 @@ A minha estratégia para resolver este desafio foi:
 
 **Etapa 10. Implantar o Modelo em Produção:**
 
-# 4. Os 3 principais insights de dados
+# 4. Os principais insights de dados
 
 ... Em Desenvolvimento
 
@@ -87,7 +97,7 @@ A minha estratégia para resolver este desafio foi:
 
 **Hipótese 03:**
 
-**Verdadeiro/falso.**
+**Verdadeiro/falso.** -->
 
 # 5. Modelo de aprendizado de máquina aplicado
 
@@ -99,10 +109,10 @@ A minha estratégia para resolver este desafio foi:
 
 # 9. Lições aprendidas
 
-# 10. Próximos passos para melhorar -->
+# 10. Próximos passos para melhorar
 
 
-## Referências
+<!-- ## Referências
 **Métricas de Ranqueamento**
 - https://queirozf.com/entries/evaluation-metrics-for-ranking-problems-introduction-and-examples
 - https://stats.stackexchange.com/questions/159657/metrics-for-evaluating-ranking-algorithms
@@ -116,5 +126,5 @@ A minha estratégia para resolver este desafio foi:
 
 **Debug**
 - https://towardsdatascience.com/how-to-debug-flask-applications-in-vs-code-c65c9bdbef21
-- https://medium.com/trainingcenter/flask-restplus-ea942ec30555
+- https://medium.com/trainingcenter/flask-restplus-ea942ec30555 -->
 
