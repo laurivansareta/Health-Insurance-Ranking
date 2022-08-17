@@ -23,20 +23,6 @@ O conjunto de dados está disponível na plataforma do Kaggle, através desse li
 
 Cada linha representa um cliente e cada coluna contém alguns atributos que descrevem esse cliente, além da sua resposta à pesquisa, na qual ela mencionou interesse ou não ao novo produto de seguros. 
 
-O conjunto de dados inclui as seguintes informações:
-- Id: identificador único do cliente.
-- Gender: gênero do cliente.
-- Age: idade do cliente.
-- Driving License: 0, o cliente não tem permissão para dirigir e 1, o cliente tem para dirigir ( CNH – Carteira Nacional de Habilitação )
-- Region Code: código da região do cliente.
-- Previously Insured: 0, o cliente não tem seguro de automóvel e 1, o cliente já tem seguro de automóvel.
-- Vehicle Age: idade do veículo.
-- Vehicle Damage: 0, cliente nunca teve seu veículo danificado no passado e 1, cliente já teve seu veículo danificado no passado.
-- Anual Premium: quantidade que o cliente pagou à empresa pelo seguro de saúde anual.
-- Policy sales channel: código anônimo para o canal de contato com o cliente.
-- Vintage: número de dias que o cliente se associou à empresa através da compra do seguro de saúde.
-- Response: 0, o cliente não tem interesse e 1, o cliente tem interesse.
-
 # 2. Premissas de Negócios.
 
 O time de vendas já utiliza o Google Sheets como ferramenta corporativa. É preciso que o ranking de propensão de compra seja incorporado nele.
@@ -64,24 +50,81 @@ Disponibilizado no link: https://docs.google.com/spreadsheets/d/1RDqk3xsWjkq25O6
 A minha estratégia para resolver este desafio foi:
 
 **Etapa 01. Descrição dos dados:**
+- Coletar dados em um banco de dados AWS.
+- Nesta etapa meu objetivo é entender as dimensões dos dados, atributos, analisar distribuição dos dados de uma forma sucinta para se necessário questionar time de negócio.
+- Fazer análise descritiva.
+
+Os dados disponíveis tem 381109 linhas e 12 colunas com as seguintes informações:
+
+| **Feature** | **Descrição** |
+| -- | -- |
+| Id | identificador único do cliente. |
+| Gender | gênero do cliente. |
+| Age | idade do cliente. |
+| Driving License | 0, o cliente não tem permissão para dirigir e 1, o cliente tem para dirigir ( CNH – Carteira Nacional de Habilitação ) |
+| Region Code | código da região do cliente. |
+| Previously Insured | 0, o cliente não tem seguro de automóvel e 1, o cliente já tem seguro de automóvel. |
+| Vehicle Age | idade do veículo. |
+| Vehicle Damage | 0, cliente nunca teve seu veículo danificado no passado e 1, cliente já teve seu veículo danificado no passado. |
+| Anual Premium | quantidade que o cliente pagou à empresa pelo seguro de saúde anual. |
+| Policy sales channel | código anônimo para o canal de contato com o cliente. |
+| Vintage | número de dias que o cliente se associou à empresa através da compra do seguro de saúde. |
+| Response | 0, o cliente não tem interesse e 1, o cliente tem interesse. |
+
+![](/img/descricao_dados.jpg)
 
 **Etapa 02. Feature Engineering:**
+- Criação mindmap de hipóteses.
+- Derivar a partir dos dados originais novos atributos que consigam modelar melhor o fonômeno.
 
 **Etapa 03. Filtragem de dados:**
+- Filtrar atributos e linhas que não tenham informações relevantes para modelar o fonômeno.
 
 **Etapa 04. Análise Exploratória de Dados:**
+- Fazer análise univariada no sweetviz, avaliando detalhes de cada atributo
+- Análise bivariada para encontrar insights e validar hipóteses.
+- Entender o impacto das variávais na aprendizagem do modelo.
 
 **Etapa 05. Preparação de Dados:**
+- Padronizar atributos numéricos com distribuição normal.
+- Reescalar atributos numéricos com distribuição não normal.
+- Codificar atributos categóricos em atributos numéricos.
+- Aplicas as transformações acima aos dados de teste.
+- Para scaling:
+    - RobustScaler (Quando havia muitos outliers)
+    - MinMaxScaler
+- Encoding:
+    - Label Encoding
+    - TargetEncoder
+    - OneHotEncoder
 
 **Etapa 06. Feature Selection:**
+- Separar dados de treino e validação.
+- Executar algoritmos que mostra relevância das features. (boruta, RFE)
+- Unir features do algoritmo com as que foram identificadas na EDA.
+- Selecionar apenas os melhores atributos para treinar os modelos de machine learning.
 
 **Etapa 07. Modelagem de machine learning:**
+- Executado algoritmos: KNN classifier, Logistic regression, ExtraTrees classifier, Randon Forest e XGBboost classifier.
+- Plotar gráficos curva de ganho cumulativo.
+- Plotar gráficos curva lift.
+- Criar tabela de performance comparando precison@k/recall@k de cada modelo.
 
 **Etapa 08. Ajuste fino de hiperparâmetros:**
+- Fazer um ajuste fino de hiperparâmetros em cada modelo, identificando o melhor conjunto de parâmetros para maximizar suas capacidades de aprendizagem.
+- Aplicar validação cruzada em cada modelo, reduzindo o viés de seleção (teoria da amostragem), por utilizar várias amostras diferentes dos dados.
+- Plotar curvas de ganho cumulativo, lift e precison@k/recall@k comparando os 4 modelos.
 
 **Etapa 09. Converter o desempenho do modelo em valores de negócios:**
+- Comparar resultados da lista aleatória com a lista ordenada por propensão de compra.
+- Traduzir as métricas do algoritmo para ganho no negócio.
 
 **Etapa 10. Implantar o Modelo em Produção:**
+- Criar classes para publicação em produção.
+- Testar as classes localmente.
+- Publicar modelo no Heroku Cloud.
+- Criar App Script em Google Sheets para consultar o modelo em produção.
+- Implementar botão que consulta a propensão de compra dos clientes no Google Sheets, e testar a solução.
 
 # 4. Os principais insights de dados
 
@@ -109,8 +152,10 @@ A minha estratégia para resolver este desafio foi:
 
 # 9. Lições aprendidas
 
-# 10. Próximos passos para melhorar
-
+# 10. Próximos passos para melhorar (proximos ciclos do CRISPI)
+- Derivar novas features.
+- Aplicar mais métodos de seleção de features (RFECV).
+- Fazer hyperparameter fine tunning usando o optuna ou GridSearchCV.
 
 <!-- ## Referências
 **Métricas de Ranqueamento**
